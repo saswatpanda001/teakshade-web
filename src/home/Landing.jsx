@@ -201,10 +201,10 @@ const HeroSection = ({ scrollToSection }) => {
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Integrated Learning
+                Integrated Learning &
               </span>
               <br />
-              <span className="text-gray-800">& Business Solutions</span>
+              <span className="text-gray-800">Business Solutions</span>
             </h1>
                         
             <p className="text-xl text-gray-600 max-w-lg">
