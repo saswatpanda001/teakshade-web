@@ -6,12 +6,42 @@ const categories = ['All', 'Residential', 'Commercial', 'Consultation'];
 
 // High-quality interior images from Unsplash
 const projects = [
-  { id: 1, title: 'Tribeca Penthouse', category: 'Residential', image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1000&q=80' },
-  { id: 2, title: 'Soho Concept Store', category: 'Commercial', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1000&q=80' },
-  { id: 3, title: 'Upper East Side Residence', category: 'Residential', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1000&q=80' },
-  { id: 4, title: 'Creative Agency HQ', category: 'Commercial', image: 'https://images.unsplash.com/photo-1497366754035-f200c1f51852?w=1000&q=80' },
-  { id: 5, title: 'Hamptons Retreat', category: 'Residential', image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=1000&q=80' },
-  { id: 6, title: 'Color Consultation', category: 'Consultation', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1000&q=80' },
+  { 
+    id: 1, 
+    title: 'Tribeca Penthouse', 
+    category: 'Residential', 
+    image: 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1000&q=80&auto=format&fit=crop' 
+  },
+  { 
+    id: 2, 
+    title: 'Soho Concept Store', 
+    category: 'Commercial', 
+    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=1000&q=80&auto=format&fit=crop' 
+  },
+  { 
+    id: 3, 
+    title: 'Upper East Side Residence', 
+    category: 'Residential', 
+    image: 'https://images.unsplash.com/photo-1613545325268-9265e1609167?w=1000&q=80&auto=format&fit=crop' 
+  },
+  { 
+    id: 4, 
+    title: 'Creative Agency HQ', 
+    category: 'Commercial', 
+    image: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1000&q=80&auto=format&fit=crop' 
+  },
+  { 
+    id: 5, 
+    title: 'Hamptons Retreat', 
+    category: 'Residential', 
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=80&auto=format&fit=crop' 
+  },
+  { 
+    id: 6, 
+    title: 'Color Consultation', 
+    category: 'Consultation', 
+    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1000&q=80&auto=format&fit=crop' 
+  },
 ];
 
 // Animation variants for scroll-triggered effects
@@ -44,7 +74,7 @@ const Portfolio = () => {
   return (
     <div className="bg-[#f7f5f0] overflow-x-hidden">
       {/* Hero Section with Large Typography */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28">
+      <section className="relative pt-16 pb-20 md:pt-20 md:pb-28">
         {/* Decorative glassmorphic blur circles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 -left-20 w-72 h-72 bg-white/30 rounded-full blur-3xl"></div>

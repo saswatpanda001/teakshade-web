@@ -45,19 +45,20 @@ const projects = [
     image: 'https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=2'
   },
 ];
-
 const testimonials = [
   { 
     quote: "TEAK SHADE transformed our home into a serene sanctuary. Every detail was considered with impeccable taste.",
-    author: "Michael Chen", 
+    author: "Aarav Mehta", 
     role: "Homeowner, Tribeca Penthouse",
-    rating: 5
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/men/75.jpg"
   },
   { 
     quote: "Their commercial design elevated our brand presence and created an unforgettable client experience.",
-    author: "Sarah Williams", 
-    role: "CEO, Lumina Group",
-    rating: 5
+    author: "Priya Sharma", 
+    role: "Soho Flagship",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/women/65.jpg"
   },
 ];
 
@@ -101,7 +102,8 @@ const ParallaxSection = ({ children, offset = 50 }) => {
 const Home = () => {
   const heroRef = useRef(null);
   const { scrollY } = useScroll();
-  const heroOpacity = useTransform(scrollY, [0, 300], [1, 0.3]);
+  const heroY = useTransform(scrollY, [0, 300], [0, 60]);
+  const heroOpacity = useTransform(scrollY, [0, 300], [1, 0.88]);
   const heroScale = useTransform(scrollY, [0, 300], [1, 1.1]);
 
   return (
@@ -109,7 +111,7 @@ const Home = () => {
       {/* Hero Section with Parallax */}
       <section ref={heroRef} className="relative h-screen min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden">
         <motion.div 
-          style={{ opacity: heroOpacity, scale: heroScale }}
+          style={{ y: heroY, opacity: heroOpacity, scale: heroScale }}
           className="absolute inset-0 z-0"
         >
           <img
@@ -121,7 +123,7 @@ const Home = () => {
         </motion.div>
         
         {/* Glassmorphism overlay */}
-        <div className="absolute inset-0 z-0 bg-white/5 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 z-0 bg-black/10 backdrop-blur-[2px]"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl">
@@ -331,53 +333,70 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 md:py-32 bg-stone-50 relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      {/* Testimonials Section - Premium Redesign */}
+      <section className="py-24 md:py-16 bg-beige relative overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(circle_at_1px_1px,black_1px,transparent_0)] bg-[size:40px_40px]" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <ParallaxSection offset={25}>
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-center mb-16 md:mb-20"
+              className="text-center mb-20 md:mb-28"
             >
-              <span className="text-xs md:text-sm tracking-[.3em] text-stone-500 uppercase">Testimonials</span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-black mt-4">
-                Client Reflections
+              <span className="text-xs md:text-sm tracking-[0.3em] text-stone-500 uppercase font-medium">
+                Testimonials
+              </span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-black mt-4 mb-6">
+                Words from <span className="font-medium">Our Clients</span>
               </h2>
-              <div className="w-20 h-px bg-black/20 mx-auto mt-6"></div>
+              <p className="text-stone-600 max-w-2xl mx-auto text-base md:text-lg">
+                Don't just take our word for it — hear what our discerning clients have to say.
+              </p>
+              <div className="w-20 h-px bg-black/20 mx-auto mt-8" />
             </motion.div>
           </ParallaxSection>
-          
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-14">
             {testimonials.map((t, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: idx === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: idx * 0.2, duration: 0.7 }}
-                className="relative"
+                transition={{ delay: idx * 0.15, duration: 0.7 }}
+                className="group"
               >
-                {/* Glassmorphism testimonial card */}
-                <div className="h-full p-8 md:p-10 lg:p-12 bg-white/60 backdrop-blur-sm border border-white rounded-2xl shadow-lg">
-                  {/* Quote icon */}
-                  <div className="text-6xl text-stone-300 mb-6">"</div>
+                <div className="relative bg-white p-8 md:p-10 lg:p-12 shadow-lg hover:shadow-xl transition-shadow duration-500">
+                  {/* Large quotation mark background */}
+                  <div className="absolute top-6 right-8 text-8xl font-serif text-stone-100 select-none">"</div>
                   
-                  {/* Rating stars */}
-                  <div className="flex gap-1 mb-6">
+                  {/* Rating Stars */}
+                  <div className="flex gap-1.5 mb-6 relative z-10">
                     {[...Array(t.rating)].map((_, i) => (
-                      <StarIcon key={i} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+                      <StarIcon key={i} className="h-5 w-5 text-amber-400 fill-amber-400" />
                     ))}
                   </div>
-                  
-                  <p className="text-lg md:text-xl lg:text-2xl font-light italic text-stone-700 leading-relaxed mb-8">
-                    {t.quote}
-                  </p>
-                  
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-stone-300 to-stone-400"></div>
+
+                  {/* Quote */}
+                  <blockquote className="relative z-10">
+                    <p className="text-xl md:text-2xl font-light leading-relaxed text-stone-800 mb-8">
+                      {t.quote}
+                    </p>
+                  </blockquote>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-4 relative z-10 pt-4 border-t border-stone-100">
+                    <div className="w-12 h-12 rounded-full overflow-hidden bg-stone-200 flex-shrink-0">
+                      <img 
+                        src={`https://images.pexels.com/photos/${idx === 0 ? '2379004' : '1181686'}/pexels-photo-${idx === 0 ? '2379004' : '1181686'}.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2`}
+                        alt={t.author}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                     <div>
                       <p className="font-medium text-black">{t.author}</p>
                       <p className="text-sm text-stone-500">{t.role}</p>
@@ -387,6 +406,7 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
+
         </div>
       </section>
 

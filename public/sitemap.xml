@@ -3,19 +3,37 @@
   <url>
     <loc>https://www.teakshade.com/</loc>
     <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
   <url>
     <loc>https://www.teakshade.com/about</loc>
     <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
   <url>
     <loc>https://www.teakshade.com/contact</loc>
     <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://www.teakshade.com/</loc>
-    <priority>1.0</priority>
+    <loc>https://www.teakshade.com/portfolio</loc>
+    <priority>0.9</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
-
+  <url>
+    <loc>https://www.teakshade.com/services</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.teakshade.com/blog</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-20</lastmod>
+  </url>
 </urlset>

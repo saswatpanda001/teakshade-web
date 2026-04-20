@@ -183,9 +183,9 @@ const Contact = () => {
                   <div>
                     <label className="block text-sm font-medium text-white/80 mb-1.5">Estimated Budget</label>
                     <select className="w-full bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-white/50" value={inquiryData.budget} onChange={(e) => setInquiryData({...inquiryData, budget: e.target.value})}>
-                      <option className="text-black">$50k - $100k</option>
-                      <option className="text-black">$100k - $250k</option>
-                      <option className="text-black">$250k+</option>
+                      <option className="text-black">50k - 100k</option>
+                      <option className="text-black">100k - 250k</option>
+                      <option className="text-black">250k+</option>
                     </select>
                   </div>
                   <div>
