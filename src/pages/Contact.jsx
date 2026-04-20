@@ -1,28 +1,51 @@
 // pages/Contact.jsx
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { CheckCircleIcon, EnvelopeIcon, MapPinIcon, PhoneIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [inquiryData, setInquiryData] = useState({ name: '', email: '', projectType: '', budget: '', details: '' });
   const [bookingData, setBookingData] = useState({ name: '', email: '', date: '', time: '', notes: '' });
+  const [submissionModal, setSubmissionModal] = useState({ isOpen: false, title: '', message: '' });
+
+  useEffect(() => {
+    if (!submissionModal.isOpen) return undefined;
+
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') {
+        setSubmissionModal((current) => ({ ...current, isOpen: false }));
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleEscape);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [submissionModal.isOpen]);
+
+  const openSubmissionModal = (title, message) => {
+    setSubmissionModal({ isOpen: true, title, message });
+  };
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
-    alert('Thank you for your message. We will respond shortly.');
+    openSubmissionModal('Message Sent', 'Thank you for your message. We will respond shortly.');
     setFormData({ name: '', email: '', message: '' });
   };
 
   const handleInquirySubmit = (e) => {
     e.preventDefault();
-    alert('Project inquiry received. Our team will reach out within 24 hours.');
+    openSubmissionModal('Inquiry Received', 'Project inquiry received. Our team will reach out within 24 hours.');
     setInquiryData({ name: '', email: '', projectType: '', budget: '', details: '' });
   };
 
   const handleBookingSubmit = (e) => {
     e.preventDefault();
-    alert('Appointment request submitted. We will confirm your booking via email.');
+    openSubmissionModal('Appointment Requested', 'Appointment request submitted. We will confirm your booking via email.');
     setBookingData({ name: '', email: '', date: '', time: '', notes: '' });
   };
 
@@ -42,6 +65,60 @@ const Contact = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
+      <AnimatePresence>
+        {submissionModal.isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          >
+            <button
+              type="button"
+              aria-label="Close success modal"
+              className="absolute inset-0 bg-black/55 backdrop-blur-md"
+              onClick={() => setSubmissionModal((current) => ({ ...current, isOpen: false }))}
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: 24, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.98 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              className="relative z-10 w-full max-w-md overflow-hidden rounded-[28px] border border-white/20 bg-white/12 p-7 text-white shadow-2xl backdrop-blur-2xl"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-white/18 via-white/8 to-transparent pointer-events-none" />
+
+              <button
+                type="button"
+                aria-label="Close modal"
+                onClick={() => setSubmissionModal((current) => ({ ...current, isOpen: false }))}
+                className="absolute right-4 top-4 rounded-full border border-white/15 bg-white/10 p-2 text-white/80 transition hover:bg-white/15 hover:text-white"
+              >
+                <XMarkIcon className="h-5 w-5" />
+              </button>
+
+              <div className="relative">
+                <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-emerald-400/18 ring-1 ring-emerald-300/30">
+                  <CheckCircleIcon className="h-8 w-8 text-emerald-200" />
+                </div>
+                <p className="text-xs uppercase tracking-[0.35em] text-white/55">Teak Shade</p>
+                <h3 className="mt-3 text-3xl font-light tracking-tight">{submissionModal.title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-white/78">{submissionModal.message}</p>
+
+                <button
+                  type="button"
+                  onClick={() => setSubmissionModal((current) => ({ ...current, isOpen: false }))}
+                  className="mt-8 inline-flex w-full items-center justify-center rounded-2xl bg-white px-5 py-3.5 text-sm font-medium tracking-[0.2em] text-black transition hover:bg-stone-100"
+                >
+                  CLOSE
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Background Image with Overlay - High-Quality Interior */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-black/40 z-10" />

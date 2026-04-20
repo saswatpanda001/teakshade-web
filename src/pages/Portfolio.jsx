@@ -10,38 +10,38 @@ const projects = [
     id: 1, 
     title: 'Tribeca Penthouse', 
     category: 'Residential', 
-    image: 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1000&q=80&auto=format&fit=crop' 
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=80&auto=format&fit=crop' 
   },
   { 
     id: 2, 
     title: 'Soho Concept Store', 
     category: 'Commercial', 
-    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=1000&q=80&auto=format&fit=crop' 
+    image: 'https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=2' 
   },
   { 
     id: 3, 
     title: 'Upper East Side Residence', 
     category: 'Residential', 
-    image: 'https://images.unsplash.com/photo-1613545325268-9265e1609167?w=1000&q=80&auto=format&fit=crop' 
+    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000&q=80&auto=format&fit=crop' 
   },
   { 
     id: 4, 
     title: 'Creative Agency HQ', 
     category: 'Commercial', 
-    image: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1000&q=80&auto=format&fit=crop' 
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80&auto=format&fit=crop' 
   },
   { 
-    id: 5, 
-    title: 'Hamptons Retreat', 
-    category: 'Residential', 
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=80&auto=format&fit=crop' 
-  },
-  { 
-    id: 6, 
-    title: 'Color Consultation', 
-    category: 'Consultation', 
-    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1000&q=80&auto=format&fit=crop' 
-  },
+  id: 5, 
+  title: 'Hamptons Retreat', 
+  category: 'Residential', 
+  image: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=1000&q=80&auto=format&fit=crop' 
+},
+{ 
+  id: 6, 
+  title: 'Color Consultation', 
+  category: 'Consultation', 
+  image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1000&q=80&auto=format&fit=crop' 
+},
 ];
 
 // Animation variants for scroll-triggered effects

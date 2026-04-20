@@ -8,13 +8,14 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
-
+import ScrollToTop from './components/ScrollToTop';
 const App = () => {
   return (
     <Router>
       <div className="flex flex-col min-h-screen bg-beige font-sans">
         <Header />
         <main className="flex-grow">
+           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

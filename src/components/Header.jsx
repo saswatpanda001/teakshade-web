@@ -189,7 +189,7 @@ const Header = () => {
                 INQUIRE NOW
               </Link>
               <div className="mt-6 text-center space-y-2">
-                <p className="text-sm text-stone-600">hello@teakshade.com</p>
+                <p className="text-sm text-stone-600">contact@teakshade.com</p>
                 <p className="text-sm text-stone-600">+91 63707 88972</p>
                 <div className="flex justify-center gap-6 pt-4">
                   <a href="#" className="text-xs tracking-wider text-stone-500 hover:text-black transition">

@@ -107,10 +107,10 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <EnvelopeIcon className="h-5 w-5 text-white/40 flex-shrink-0 mt-0.5" />
                 <a
-                  href="mailto:hello@teakshade.com"
+                  href="mailto:contact@teakshade.com"
                   className="text-white/60 hover:text-white text-sm transition-colors"
                 >
-                  hello@teakshade.com
+                  contact@teakshade.com
                 </a>
               </li>
               <li className="flex items-start gap-3">

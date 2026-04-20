@@ -30,13 +30,13 @@ const projects = [
     year: '2024',
     image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=2'
   },
-  { 
-    title: 'Soho Flagship', 
-    category: 'Commercial', 
-    location: 'London',
-    year: '2023',
-    image: 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=2'
-  },
+  {
+  title: 'Soho Flagship',
+  category: 'Commercial',
+  location: 'London',
+  year: '2023',
+  image: 'https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=2'
+},
   { 
     title: 'Upper East Side', 
     category: 'Residential', 
@@ -45,6 +45,7 @@ const projects = [
     image: 'https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=2'
   },
 ];
+
 const testimonials = [
   { 
     quote: "TEAK SHADE transformed our home into a serene sanctuary. Every detail was considered with impeccable taste.",
@@ -450,7 +451,7 @@ const Home = () => {
                 <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="https://wa.me/12125550198"
+                href="https://wa.me/6370788972"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group border border-white/50 bg-white/10 backdrop-blur-md text-white px-8 md:px-10 py-4 text-sm tracking-widest hover:bg-white hover:text-black transition-all duration-300 text-center inline-flex items-center justify-center gap-2"

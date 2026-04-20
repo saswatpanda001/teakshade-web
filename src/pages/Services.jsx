@@ -1,6 +1,7 @@
 // pages/Services.jsx
 import React, { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   HomeIcon,
   BuildingOfficeIcon,
@@ -16,6 +17,9 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
+
+
+
 
 // --- Data ---
 const servicesGrid = [
@@ -132,6 +136,7 @@ const Services = () => {
   const { scrollYProgress } = useScroll();
   const heroY = useTransform(scrollYProgress, [0, 0.3], [0, 80]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
+  const navigate = useNavigate();
 
   return (
     <div className="bg-gradient-to-b from-white via-stone-50 to-white">
@@ -168,6 +173,7 @@ const Services = () => {
             <motion.button
               whileHover={{ scale: 1.05, backgroundColor: 'rgb(254 243 235)' }}
               whileTap={{ scale: 0.95 }}
+              onClick = {() => navigate('/contact')}
               className="mt-12 px-10 py-4 bg-white text-stone-900 rounded-full text-sm font-semibold tracking-wide shadow-2xl hover:shadow-amber-200/50 transition-all duration-500 inline-flex items-center gap-3 group backdrop-blur-sm border border-white/20"
             >
               Book a Consultation
@@ -272,13 +278,7 @@ const Services = () => {
                       </motion.li>
                     ))}
                   </ul>
-                  <motion.button 
-                    whileHover={{ x: 8 }}
-                    className="mt-8 text-stone-800 font-medium text-base border-b-2 border-stone-400 pb-2 hover:border-amber-500 hover:text-amber-700 transition-all inline-flex items-center gap-2 group"
-                  >
-                    Learn More
-                    <ArrowRightIcon className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
-                  </motion.button>
+                  
                 </div>
               </div>
               <motion.div 
@@ -418,6 +418,7 @@ const Services = () => {
             <motion.button 
               whileHover={{ scale: 1.05, backgroundColor: 'rgb(254 243 235)' }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/contact')}
               className="px-10 py-4 bg-white text-stone-900 rounded-full text-sm font-semibold shadow-2xl hover:shadow-amber-200/50 transition-all duration-500 inline-flex items-center gap-3 group backdrop-blur-sm border border-white/20"
             >
               Start Your Project
